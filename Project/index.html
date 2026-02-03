@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waste-to-Electricity Dashboard</title>
+
+  <!-- CONNECT CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div>
+    <h1>Waste-to-Electricity</h1>
+    <p>Smart Waste to Energy Monitoring System</p>
+  </div>
+  <div class="status">SYSTEM READY</div>
+</header>
+
+<main class="container">
+
+<div>
+  <div class="card">
+    <h2>➕ Input Parameters</h2>
+
+    <label>Waste Mass (grams)</label>
+    <input type="number" id="wasteGrams" placeholder="Example: 500">
+
+    <button onclick="generateEnergy()">Generate</button>
+
+    <div class="metrics">
+      <div class="metric">
+        Voltage (Const)
+        <span id="solarVoltage">-- V</span>
+      </div>
+      <div class="metric">
+        Battery
+        <span id="batteryPercent">-- %</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <h2>🧪 The Process</h2>
+    <p class="process">
+      Waste materials are converted into electrical energy using
+      Waste-to-Energy technologies such as <b>Microbial Fuel Cells</b>.
+      Generated power is stored in batteries and monitored through
+      voltage, charge level and backup time parameters.
+    </p>
+  </div>
+</div>
+
+<div>
+  <div class="card">
+    <h2>📊 Output Monitor <span style="float:right;color:#22c55e;">● LIVE</span></h2>
+
+    <div style="display:flex;justify-content:center;margin:25px 0;">
+      <div style="position:relative;width:180px;height:90px;overflow:hidden;">
+        <div style="
+          position:absolute;
+          width:100%;
+          height:100%;
+          border:10px solid #1e293b;
+          border-bottom:none;
+          border-radius:180px 180px 0 0;
+        "></div>
+
+        <div id="gaugeNeedle"></div>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        Power Output
+        <span id="powerOutput">0.00 kWh</span>
+      </div>
+      <div class="metric">
+        Backup Time
+        <span id="backupTime">0.0 hrs</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <h2>🔌 Devices That Can Be Powered</h2>
+    <p class="process" id="deviceList">
+      Enter waste amount to view supported devices
+    </p>
+  </div>
+</div>
+
+</main>
+
+<!-- CONNECT JS -->
+<script src="script.js"></script>
+</body>
+</html>
